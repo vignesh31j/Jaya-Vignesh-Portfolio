@@ -112,3 +112,39 @@ const cursor = document.getElementById("cursor");
     };
 
     initCursor();
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const scrollAmount = 350; // Adjust based on your image + gap
+
+        document.querySelectorAll('.servicecontainer').forEach(container => {
+            const content = container.querySelector('.service_content');
+            const leftBtn = container.querySelector('.arrowup');
+            const rightBtn = container.querySelector('.arrowdown');
+
+            // Clone elements for infinite effect
+            const imgs = content.querySelectorAll('a');
+            imgs.forEach(img => {
+                const clone = img.cloneNode(true);
+                content.appendChild(clone);
+            });
+
+            leftBtn.addEventListener('click', () => {
+                content.scrollLeft -= scrollAmount;
+
+                // Loop to end if scroll is near the start
+                if (content.scrollLeft <= 0) {
+                    content.scrollLeft += content.scrollWidth / 2;
+                }
+            });
+
+            rightBtn.addEventListener('click', () => {
+                content.scrollLeft += scrollAmount;
+
+                // Loop to start if scroll is near the end
+                if (content.scrollLeft >= content.scrollWidth / 2) {
+                    content.scrollLeft -= content.scrollWidth / 2;
+                }
+            });
+        });
+    });
+  
