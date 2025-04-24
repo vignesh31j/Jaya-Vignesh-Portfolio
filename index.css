@@ -352,12 +352,12 @@ footer {
     display: grid;
     row-gap: 30px;
     position: relative;
-    
 }
 
 @media screen and (max-width: 720px) {
-    .servicecontainer {
-        margin: 0px -40px ;
+    .service_img {
+        width: 150px;
+        height: 150px;
     }
 
     .skilltag_icon {
@@ -372,6 +372,10 @@ footer {
     #skilltag_container {
         gap: 20px;
         padding: 0px;
+    }
+
+    .fade {
+        background: linear-gradient(90deg, #eeeeee, transparent 20%, transparent 80%, #eeeeee);
     }
 }
 
