@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-
 * {
     margin: 0;
     padding: 0;
@@ -10,31 +8,14 @@
 
 body {
     display: grid;
-    background: #e0dad5;
+    background-color: #eeeeee;
     cursor: none;
     font-family: "Sour Gummy", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+    font-variation-settings: "wdth" 100;
+    /* font-size: clamp(1.5rem, 2.5vw + 1rem, 3rem); */
 }
-
-/* html,
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background: #e0dad5;
-    cursor: none;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-body::-webkit-scrollbar {
-    display: none;
-} */
 
 svg {
     display: none;
@@ -60,10 +41,19 @@ svg {
     transform: translate(-50%, -50%);
 }
 
+#particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
 header {
     position: sticky;
     top: 0;
-    background-color: #e0dad5;
+    background-color: #eeeeee;
     border-bottom: 1px solid;
     z-index: 1;
 }
@@ -92,6 +82,7 @@ ul {
 a {
     text-decoration: none;
     cursor: none;
+    color: black;
 }
 
 #content {
@@ -112,7 +103,7 @@ a {
     letter-spacing: 10px;
     white-space: nowrap;
     overflow: hidden;
-    width: 13ch; 
+    width: 13ch;
     margin: 0 auto;
     text-align: center;
     border-right: 5px solid rgb(0, 0, 0);
@@ -120,7 +111,7 @@ a {
 }
 
 #role {
-    font-size: clamp(1.5rem, 5vw, 4.375rem); 
+    font-size: clamp(1.5rem, 5vw, 4.375rem);
     text-transform: uppercase;
     line-height: 1.2;
 }
@@ -129,6 +120,7 @@ a {
     0% {
         width: 0;
     }
+
     100% {
         width: 15ch;
     }
@@ -139,7 +131,7 @@ a {
     50% {
         border-color: transparent;
     }
-        
+
 }
 
 
@@ -196,10 +188,16 @@ a {
 }
 
 .edu_img {
-    height: 330px;
+    /* height: 330px; */
     border-radius: 25px;
     box-shadow: 0px 0px 10px;
 }
+
+.edu_img {
+    width: clamp(300px, 70%, 600px);
+    height: clamp(auto, 30%, 330px);
+}
+
 
 .edu_content_container {
     display: flex;
@@ -225,25 +223,27 @@ a {
 }
 
 #skilltag_container {
+    gap: 50px;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    gap: 50px;
+    flex-direction: row; 
     justify-content: center;
 }
 
 .skilltag_icon {
     height: 150px;
+    object-fit: cover;
 }
 
 .skills_tag {
+    width: 230px;
+    height: 230px;
     display: grid;
     justify-items: center;
+    justify-content: center;
     border-radius: 20px;
     box-shadow: 0px 0px 10px;
     padding: 20px;
-    width: 230px;
-    height: 230px;
     gap: 20px;
     animation: appear 5s linear;
     animation-timeline: view();
@@ -256,6 +256,7 @@ a {
         opacity: 0;
         scale: 0.4;
     }
+
     to {
         opacity: 1;
         scale: 1;
@@ -309,36 +310,38 @@ footer {
     color: white;
 }
 
+
+
+
 #service {
     padding: 20px 50px;
     display: grid;
     gap: 30px;
-    
 }
 
 #service_container {
     display: grid;
     padding: 0px 30px;
     gap: 50px;
-    
 }
 
 .service_content {
     display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 90px;
+    gap: 50px;
     animation: appear 5s linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
-    padding: 20px;
     position: relative;
     scroll-behavior: smooth;
 }
 
 .service_img {
+    object-fit: cover; /* ensures images don’t distort */
     width: 300px;
     height: 300px;
     border-radius: 25px;
@@ -349,17 +352,39 @@ footer {
     display: grid;
     row-gap: 30px;
     position: relative;
+    
+}
+
+@media screen and (max-width: 720px) {
+    .servicecontainer {
+        margin: 0px -40px ;
+    }
+
+    .skilltag_icon {
+        height: 60px;
+    }
+
+    .skills_tag {
+        width: 120px;
+        height: 120px;
+    }
+
+    #skilltag_container {
+        gap: 20px;
+        padding: 0px;
+    }
 }
 
 .service_content::-webkit-scrollbar {
-    display: none; /* Hide scroll bar */
+    display: none;
 }
 
 .fade {
     position: absolute;
-    background: linear-gradient(90deg, #e0dad5 ,transparent 30%, transparent 70% ,#e0dad5);
+    background: linear-gradient(90deg, #eeeeee, transparent 30%, transparent 70%, #eeeeee);
     inset: 0;
     pointer-events: none;
+    margin: 0px -50px;
 }
 
 @keyframes loop {
@@ -392,7 +417,7 @@ footer {
 
 .arrowdown {
     position: absolute;
-    right: -100px;
+    right: -110px;
     top: 50%;
     transform: translate(-50%, -50%);
 }
@@ -407,7 +432,7 @@ footer {
 }
 
 #dropdown_content {
-    display: none;    
+    display: none;
     position: absolute;
     padding: 20px;
     right: 0;
@@ -435,4 +460,38 @@ header a:hover {
     #menubar {
         display: none;
     }
+}
+
+
+.freelance-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.freelance-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.services-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.services-list li {
+    font-size: 1.2em;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0078ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
 }
