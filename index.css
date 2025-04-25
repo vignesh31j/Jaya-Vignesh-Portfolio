@@ -1,4 +1,36 @@
+/* General Styling Starts */
 @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.4;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 15ch;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+
+}
 
 * {
     margin: 0;
@@ -17,6 +49,9 @@ body {
     /* font-size: clamp(1.5rem, 2.5vw + 1rem, 3rem); */
 }
 
+/* General Styling Ends */
+
+/* Cursor Styling Starts */
 svg {
     display: none;
 }
@@ -50,6 +85,9 @@ svg {
     z-index: -1;
 }
 
+/* Cursor Styling Ends */
+
+/* Header Section Starts */
 header {
     position: sticky;
     top: 0;
@@ -85,6 +123,43 @@ a {
     color: black;
 }
 
+#menu_icon {
+    width: 50px;
+}
+
+#dropdown_content {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    top: 95px;
+    right: 0;
+    background-color: #eeeeee;
+    border: 1px solid black;
+}
+
+#dropdown_content li {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#menu:hover #dropdown_content {
+    display: grid;
+}
+
+header a:hover {
+    transition: all 0.6s ease;
+    text-decoration: underline;
+}
+
+#menu {
+    display: none;
+}
+
+/* Header Section Ends */
+
+/* Home Section Starts */
 #content {
     position: sticky;
     top: 100px;
@@ -116,44 +191,9 @@ a {
     line-height: 1.2;
 }
 
-@keyframes typing {
-    0% {
-        width: 0;
-    }
+/* Home Section Ends */
 
-    100% {
-        width: 15ch;
-    }
-}
-
-
-@keyframes blink {
-    50% {
-        border-color: transparent;
-    }
-
-}
-
-
-.div_container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.div_img {
-    width: 400px;
-    height: 400px;
-    border-radius: 25px;
-}
-
-/* main {
-    padding: 80px;
-} */
-
-
+/* Education Section Starts */
 #edu {
     padding: 20px 50px;
     display: grid;
@@ -198,14 +238,12 @@ a {
     height: clamp(auto, 30%, 330px);
 }
 
-
 .edu_content_container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     gap: 30px;
-    box-shadow: 0px 0px 10px;
     border-radius: 25px;
     padding: 20px;
 }
@@ -216,6 +254,9 @@ a {
     background-color: #f6f4f3;
 }
 
+/* Education Section Ends */
+
+/* Skill Section Starts */
 #skill_container {
     padding: 20px 50px;
     display: grid;
@@ -226,7 +267,7 @@ a {
     gap: 50px;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row; 
+    flex-direction: row;
     justify-content: center;
 }
 
@@ -243,76 +284,16 @@ a {
     justify-content: center;
     border-radius: 20px;
     box-shadow: 0px 0px 10px;
-    padding: 20px;
+    padding: 10px;
     gap: 20px;
     animation: appear 5s linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
 }
 
+/* Skill Section Ends */
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        scale: 0.4;
-    }
-
-    to {
-        opacity: 1;
-        scale: 1;
-    }
-}
-
-
-
-
-footer {
-    background-color: #3F2E3E;
-    padding: 50px 0px 40px 0px;
-    font-size: 18px;
-    color: white;
-    font-weight: 600;
-}
-
-#footer-con {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    column-gap: 50px;
-    row-gap: 50px;
-}
-
-.footer-cons {
-    width: 200px;
-    display: grid;
-    row-gap: 20px;
-}
-
-.footer-cons h2 {
-    text-decoration: underline;
-}
-
-#copyright {
-    border-top: 2px solid white;
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 40px;
-}
-
-.footer-list {
-    list-style: none;
-    display: grid;
-    row-gap: 15px;
-}
-
-.footer-list li a {
-    color: white;
-}
-
-
-
-
+/* Service Section Starts */
 #service {
     padding: 20px 50px;
     display: grid;
@@ -338,10 +319,11 @@ footer {
     animation-range: entry 0% cover 40%;
     position: relative;
     scroll-behavior: smooth;
+    padding: 15px;
 }
 
 .service_img {
-    object-fit: cover; /* ensures images don’t distort */
+    object-fit: cover;
     width: 300px;
     height: 300px;
     border-radius: 25px;
@@ -354,51 +336,8 @@ footer {
     position: relative;
 }
 
-@media screen and (max-width: 720px) {
-    .service_img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .skilltag_icon {
-        height: 60px;
-    }
-
-    .skills_tag {
-        width: 120px;
-        height: 120px;
-    }
-
-    #skilltag_container {
-        gap: 20px;
-        padding: 0px;
-    }
-
-    .fade {
-        background: linear-gradient(90deg, #eeeeee, transparent 20%, transparent 80%, #eeeeee);
-    }
-}
-
 .service_content::-webkit-scrollbar {
     display: none;
-}
-
-.fade {
-    position: absolute;
-    background: linear-gradient(90deg, #eeeeee, transparent 30%, transparent 70%, #eeeeee);
-    inset: 0;
-    pointer-events: none;
-    margin: 0px -50px;
-}
-
-@keyframes loop {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
 }
 
 .btn_move {
@@ -430,46 +369,12 @@ footer {
     width: 80px;
 }
 
+/* Service Section Starts */
 
-#menu_icon {
-    width: 50px;
-}
-
-#dropdown_content {
-    display: none;
-    position: absolute;
-    padding: 20px;
-    right: 0;
-    background-color: #e0dad5;
-}
-
-#menu:hover #dropdown_content {
-    display: grid;
-}
-
-header a:hover {
-    transition: all 0.6s ease;
-    text-decoration: underline;
-}
-
-#menu {
-    display: none;
-}
-
-@media screen and (max-width:720px) {
-    #menu {
-        display: block;
-    }
-
-    #menubar {
-        display: none;
-    }
-}
-
-
+/* Freelance Section Starts */
 .freelance-section {
     padding: 60px 20px;
-    background-color: #f9f9f9;
+    background-color: #eeeeee;
     text-align: center;
 }
 
@@ -498,4 +403,100 @@ header a:hover {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+}
+
+/* Freelance Section Ends */
+
+/* Footer Section Starts */
+footer {
+    background-color: #3F2E3E;
+    padding: 50px 0px 40px 0px;
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+}
+
+#footer-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    column-gap: 50px;
+    row-gap: 50px;
+}
+
+.footer-content {
+    width: 230px;
+    display: grid;
+    row-gap: 20px;
+}
+
+.footer-content h2 {
+    text-decoration: underline;
+}
+
+#learn-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0078ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.footer-list {
+    list-style: none;
+    display: grid;
+    row-gap: 15px;
+}
+
+.footer-list li a {
+    color: white;
+}
+#social {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+#copyright {
+    border-top: 2px solid white;
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+}
+/* Footer Section Ends */
+
+@media screen and (max-width:720px) {
+    #menu {
+        display: block;
+    }
+
+    #menubar {
+        display: none;
+    }
+
+    .service_img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .skilltag_icon {
+        height: 60px;
+    }
+
+    .skills_tag {
+        width: 120px;
+        height: 120px;
+    }
+
+    #skilltag_container {
+        gap: 20px;
+        padding: 0px;
+    }
+
 }
